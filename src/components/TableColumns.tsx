@@ -1,8 +1,4 @@
-export interface TableColumnsProps {
-  vals: string[];
-  widths: number[];
-  onClick: () => void;
-}
+import { TableColumnsProps } from "../models/props";
 
 const TableColumns = ({ vals, widths, onClick }: TableColumnsProps) => (
   <div className="table__columns" onClick={onClick}>

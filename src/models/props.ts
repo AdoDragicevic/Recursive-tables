@@ -15,3 +15,9 @@ export interface TableRowProps {
   id: string;
   widths: number[];
 }
+
+export interface TableColumnsProps {
+  vals: string[];
+  widths: number[];
+  onClick: () => void;
+}
