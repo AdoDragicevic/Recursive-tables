@@ -1,4 +1,4 @@
-import { TableReducer, TableDispatchActionType } from "../models/reducet";
+import { TableReducer, TableDispatchActionType } from "../models/reducer";
 
 const tableReducer: TableReducer = (state, action) => {
   switch(action.type) {
