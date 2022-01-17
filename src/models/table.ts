@@ -2,7 +2,7 @@ export type Table = TableRow[];
 
 export interface TableRow {
   data: Record<string, string>;
-  kidns: Record<string, { records: TableRow[] }>;
+  kids: Record<string, { records: TableRow[] }>;
 }
 
 export type Location = (number | string)[];
