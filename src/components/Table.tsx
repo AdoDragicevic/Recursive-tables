@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { TableCtx } from "../contexts/table";
 import { TableProps } from "../models/props";
-import getLocationFromId from "../helpers/getLocationFromId";
-import getTable from "../helpers/getTable";
+import { getLocationFromId, getTable, getTableName, getColumnsWidths, getTableRows } from "../helpers/table";
+
 
 const Table = ({ id = "" }: TableProps) => {
   
@@ -10,8 +10,24 @@ const Table = ({ id = "" }: TableProps) => {
 
   const location = getLocationFromId(id);
   const table = getTable(data, location);
-  const name = getTableName(location); location[location.length - 1] || "Data";    
+  const tableName = getTableName(location);
+  const labels = Object.keys(table[0].data);
+  const columnsWidths = getColumnsWidths(table);
+  const tableRows = getTableRows(table, columnsWidths, id);
 
+  return (
+    <div className="table">
+      <p className="table__name"> {tableName} </p>
+      <TableRow 
+        id={`${id}-label`} 
+        vals={labels} 
+        isExpandable={false} 
+        isDeletable={false} 
+        widths={columnsWidths} 
+      />
+      {tableRows}
+    </div>
+  )
 }
 
 export default Table;

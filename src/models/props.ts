@@ -7,3 +7,11 @@ export interface ChildrenProps {
 export interface TableProps {
   id?: string;
 }
+
+export interface TableRowProps {
+  vals: string[];
+  isExpandable: boolean;
+  isDeletable: boolean;
+  id: string;
+  widths: number[];
+}
