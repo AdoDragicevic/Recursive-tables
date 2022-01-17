@@ -1,0 +1,65 @@
+.table {
+
+  font-size: 1.5rem;
+  padding-left: .5rem;
+  border-left: 1px solid gray;
+  margin: 1rem;
+
+  /*
+  &:hover {
+    //transform: scale(0.15); // this could be an intro animation
+  }
+  */
+
+  &__name {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+  }
+
+  &__row {
+    min-width: max-content;
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .2rem;
+    transition: all .4s;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    text-align: center;
+
+    &:nth-of-type(1) {
+      height: 3rem;
+      background-color: lightblue;
+    }
+
+    &:not(:nth-of-type(1)):hover {
+      background-color: rgb(232, 240, 243);
+      cursor: pointer;
+    }
+    
+  }
+
+  &__columns {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+  }
+
+  &__btn {
+    width: 7rem;
+    font-size: 1.5rem;
+    transition: all .5s;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    
+    &:hover {
+      transform: rotate(90deg);
+      color: black;
+    }
+  }
+
+}
