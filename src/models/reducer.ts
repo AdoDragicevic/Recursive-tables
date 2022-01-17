@@ -1,7 +1,7 @@
 import { Reducer } from "react";
-import { Table } from "./table";
+import { Records } from "./table";
 
-export type TableReducer = Reducer<Table, TableDispatchAction>;
+export type TableReducer = Reducer<Records, TableDispatchAction>;
 
 export type TableDispatchAction = { 
   type: TableDispatchActionType.DELETE; 

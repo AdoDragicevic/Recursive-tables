@@ -1,11 +1,9 @@
 import TableColumns from "./TableColumns";
 import useToggle from "../hooks/useToggle";
-import { ReactNode, useContext, useEffect, useState } from "react";
+import { ReactNode, useContext, useState } from "react";
 import { TableDispatchCtx } from "../contexts/table";
 import { TableDispatchActionType } from "../models/reducer";
 import { TableRowProps } from "../models/props";
-import Table from "../components/Table";
-import { getChildTablesIds } from "../helpers/table";
 
 const TableRow = ({ vals, isExpandable, isDeletable, widths, id }: TableRowProps) => {
   
@@ -29,7 +27,7 @@ const TableRow = ({ vals, isExpandable, isDeletable, widths, id }: TableRowProps
     }
   }, [isExpanded, isExpandable, id]);
   */
- 
+
   return (
     <>
       <div className="table__row">

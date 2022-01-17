@@ -1,5 +1,5 @@
 import { createContext, Dispatch } from "react";
-import { Table } from "../models/table";
+import { Records } from "../models/table";
 import { TableReducer, TableDispatchAction } from "../models/reducer";
 import { ChildrenProps } from "../models/props";
 import useReducerAndLocStrg from "../hooks/useReducerAndLocStrg";
@@ -10,7 +10,7 @@ const SEED_DATA = JSON.parse(seedData);
 const LOC_STRG_KEY = "ado_dragi_table"
 
 
-export const TableCtx = createContext<Table>([]);
+export const TableCtx = createContext<Records>([]);
 export const TableDispatchCtx = createContext<Dispatch<TableDispatchAction>>(() => {});
 
 export const TableProvider = ({ children }: ChildrenProps) => {
