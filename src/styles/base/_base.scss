@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* 1 rem = 10px; font-size: 10px;
+  However, by defining it in px we change the browser font size that the user can change in the browser settings.
+  This would be bad because some people want to increase the default font size, so we use %
+  Default font size is 16px
+  100% would be 16px
+  But we want 10px, so we calculate 10 / 16
+  1rem = 62.5% (of what the user sets in browser as default; or 16px if the user doesn't change it) */
+  font-size: 62.5%; /* 1 rem = 10px */
+  overflow-y: scroll;
+}
+
+body {
+  box-sizing: border-box; 
+}
+
