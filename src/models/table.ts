@@ -5,6 +5,8 @@ export interface TableRow {
   kidns: Record<string, { records: TableRow[] }>;
 }
 
+export type Location = (number | string)[];
+
 /* Equivalent:
 
 export type Table = TableRow[];
