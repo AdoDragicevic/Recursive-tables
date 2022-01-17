@@ -1,3 +1,4 @@
+import TableRow from "./TableRow";
 import { useContext } from "react";
 import { TableCtx } from "../contexts/table";
 import { TableProps } from "../models/props";
