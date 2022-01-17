@@ -20,7 +20,7 @@ const Table = ({ id = "" }: TableProps) => {
     <div className="table">
       <p className="table__name"> {tableName} </p>
       <TableRow 
-        id={`${id}-label`} 
+        id={`${id}-label`}
         vals={labels} 
         isExpandable={false} 
         isDeletable={false} 

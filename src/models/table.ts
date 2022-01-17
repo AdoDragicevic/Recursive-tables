@@ -1,8 +1,8 @@
-export type Records = TableRow[];
+export type Table = TableRow[];
 
 export interface TableRow {
   data: Record<string, string>;
-  kids: Record<string, { records: Records }>;
+  kids: Record<string, { records: Table }>;
 }
 
 export type Location = (number | string)[];

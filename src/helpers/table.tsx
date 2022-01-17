@@ -1,11 +1,11 @@
-import { Records, Location } from "../models/table"
+import { Table, Location } from "../models/table"
 import TableRow from "../components/TableRow";
 
 export const getLocationFromId = (id: string): Location => (
   id ? id.split("-").map( (s, i) => i % 2 === 0 ? parseInt(s) : s ) : []
 )
 
-export const getTable = (data: Records, location: Location): Records => {
+export const getTable = (data: Table, location: Location): Table => {
   if (location.length === 0) return data;
   const indx = location[0];
   const key = location[1];
@@ -23,7 +23,7 @@ const getTxtWidth = (text: string) => {
   return Math.round(width) * 1.7;
 }
 
-export const getColumnsWidths = (data: Records) => {
+export const getColumnsWidths = (data: Table) => {
   const widths: number[] = [];
   data.forEach( (d, indx) => {
     Object.keys(d.data).forEach((key, i) => {
@@ -35,7 +35,7 @@ export const getColumnsWidths = (data: Records) => {
   return widths;
 }
 
-export const getTableRows = (data: Records, columnsWidths: number[], indx: string | null) => (
+export const getTableRows = (data: Table, columnsWidths: number[], indx: string) => (
   data.map((d, i) => {
     const vals = Object.values(d.data);
     const hasChildren = Object.keys(d.kids).length !== 0;
@@ -53,7 +53,7 @@ export const getTableRows = (data: Records, columnsWidths: number[], indx: strin
   })
 );
 
-export const getChildTablesIds = (data: Records, parentId: string): string[] => {
+export const getChildTablesIds = (data: Table, parentId: string): string[] => {
   const location = getLocationFromId(parentId);
   const currTableRow = location.pop() as number;
   const currTable = getTable(data, location);
