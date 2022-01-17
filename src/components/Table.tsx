@@ -9,8 +9,8 @@ const Table = ({ id = "" }: TableProps) => {
   const data = useContext(TableCtx);
 
   const location = getLocationFromId(id);
-  const table = location.length ? getTable(data, location) : data;
-    
+  const table = getTable(data, location);
+  const name = getTableName(location); location[location.length - 1] || "Data";    
 
 }
 
