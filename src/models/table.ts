@@ -1,3 +1,5 @@
+export type Table = TableRow[];
+
 export interface TableRow {
   data: Record<string, string>;
   kidns: Record<string, { records: TableRow[] }>;
