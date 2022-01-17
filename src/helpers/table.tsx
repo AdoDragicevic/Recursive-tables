@@ -52,3 +52,10 @@ export const getTableRows = (data: Table, columnsWidths: number[], indx: string 
     )
   })
 );
+
+export const getChildTablesIds = (data: Table, parentId: string): string[] => {
+  const location = getLocationFromId(parentId);
+  const currTableRow = location.pop() as number;
+  const currTable = getTable(data, location);
+  return Object.keys(currTable[currTableRow].kids).map(key => `${parentId}-${key}`);
+}
