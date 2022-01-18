@@ -6,7 +6,7 @@ import { getLocationFromId, getTable, getTableName, getColumnsWidths, getTableRo
 
 
 const Table = ({ id = "" }: TableProps) => {
-  
+
   const data = useContext(TableCtx);
 
   const location = getLocationFromId(id);

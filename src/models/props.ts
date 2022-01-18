@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { Kids } from "./table";
 
 export interface ChildrenProps {
   children: ReactNode;

@@ -15,22 +15,23 @@ const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => 
   const onEdit = () => alert("edit");
 
   const onDelete = () => {
+    if (isExpanded) toggleExpanded();
     dispatch({ type: TableDispatchActionType.DELETE, id });
   }
 
-  const btn1ClassName = `table__btn table__btn--${isExpanded ? "opened" : "closed"}`;
-  const btn2ClassName = "table__btn table__btn--delete";
+  const btn1CSS = `table__btn table__btn--${isExpanded ? "opened" : "closed"}`,
+        btn2CSS = "table__btn table__btn--delete";
 
   return (
     <>
       <div className="table__row">
-        { kidsIds.length ?
-          <button className={btn1ClassName} onClick={toggleExpanded}> {">"} </button> : 
+        { kidsIds.length !== 0 ?
+          <button className={btn1CSS} onClick={toggleExpanded}> {">"} </button> : 
           <div style={{ width: "7rem" }} /> 
         }
         <TableColumns vals={vals} widths={widths} onClick={onEdit} />
         { isDeletable ?
-          <button className={btn2ClassName} onClick={onDelete}> x </button> : 
+          <button className={btn2CSS} onClick={onDelete}> x </button> : 
           <div style={{ width: "7rem" }} /> 
         }
       </div>
