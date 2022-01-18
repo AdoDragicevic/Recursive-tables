@@ -3,20 +3,14 @@ import { TableCtx } from "../contexts/table";
 import { TableProps } from "../models/props";
 import { getLocationFromId, getTable, getTableName, getColumnsWidths, getTableRows } from "../helpers/table";
 import TableRow from "./TableRow";
+import EmptyTable from "./EmptyTable";
 
 
 const Table = ({ id = "" }: TableProps) => {
 
   const data = useContext(TableCtx);
 
-  /*
-  if (!data.length) {
-    localStorage.clear();
-    window.location.reload();
-    // return <p className="table__no-data-msg"> Table is empty </p>;
-  }
-  */
-
+  if (!data.length) return <EmptyTable />;
   const location = getLocationFromId(id);
   const table = getTable(data, location);
   const name = getTableName(location);
