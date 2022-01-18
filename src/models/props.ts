@@ -19,5 +19,4 @@ export interface TableRowProps {
 export interface TableColumnsProps {
   vals: string[];
   widths: number[];
-  onClick: () => void;
 }

@@ -24,7 +24,7 @@
   &__row {
     min-width: max-content;
     display: flex;
-    border: 1px solid black;
+    border: 1px solid #2F131E;
     justify-content: space-between;
     align-items: center;
     margin-top: .2rem;
@@ -35,12 +35,11 @@
 
     &:nth-of-type(1) {
       height: 3rem;
-      background-color: lightblue;
+      background-color: #add8e6;
     }
 
     &:not(:nth-of-type(1)):hover {
       background-color: rgb(232, 240, 243);
-      cursor: pointer;
     }
     
   }
@@ -53,20 +52,28 @@
 
   &__btn {
     width: 7rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
     transition: all .5s;
     background-color: transparent;
     border: none;
     cursor: pointer;
     height: 100%;
+    color: #577a86;
   }
 
   &__btn--opened {
-    transform: rotate(90deg);
+    transform: rotate(90deg) translateY(15px);
+    opacity: .8;
+    font-size: 2rem;
+    color: #577a86;
   }
 
   &__btn--delete:hover {
-    color: rgb(212, 97, 97);
+    color: #F05D5E;
+
+    &:active {
+      transform: rotate(180deg);
+    }
   }
 
 }
