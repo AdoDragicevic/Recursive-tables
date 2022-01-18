@@ -11,21 +11,15 @@ const Table = ({ id = "" }: TableProps) => {
 
   const location = getLocationFromId(id);
   const table = getTable(data, location);
-  const tableName = getTableName(location);
+  const name = getTableName(location);
   const labels = Object.keys(table[0].data);
   const columnsWidths = getColumnsWidths(table);
   const tableRows = getTableRows(table, columnsWidths, id);
 
   return (
     <div className="table">
-      <p className="table__name"> {tableName} </p>
-      <TableRow 
-        id={`${id}-label`}
-        vals={labels} 
-        isExpandable={false} 
-        isDeletable={false} 
-        widths={columnsWidths} 
-      />
+      <p className="table__name"> {name} </p>
+      <TableRow id={`${id}-label`} vals={labels} kids={[]} isDeletable={false} widths={columnsWidths} />
       {tableRows}
     </div>
   )

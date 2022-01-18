@@ -1,16 +1,16 @@
 import TableColumns from "./TableColumns";
 import useToggle from "../hooks/useToggle";
-import { ReactNode, useContext, useState } from "react";
+import { useContext } from "react";
+import Table from "./Table";
 import { TableDispatchCtx } from "../contexts/table";
 import { TableDispatchActionType } from "../models/reducer";
 import { TableRowProps } from "../models/props";
 
-const TableRow = ({ vals, isExpandable, isDeletable, widths, id }: TableRowProps) => {
+const TableRow = ({ id, vals, kids, widths, isDeletable }: TableRowProps) => {
   
   const dispatch = useContext(TableDispatchCtx);
   
   const [isExpanded, toggleExpanded] = useToggle(false);
-  const [childTables, setChildTables] = useState<ReactNode[]>([]);
 
   const onEdit = () => alert("edit");
 
@@ -18,20 +18,10 @@ const TableRow = ({ vals, isExpandable, isDeletable, widths, id }: TableRowProps
     dispatch({ type: TableDispatchActionType.DELETE, id });
   }
 
-  /*
-  useEffect( () => {
-    if (isExpanded) {
-      const idList = getChildTablesIds(id);
-      const tables = idList.map(id => <Table key={id} id={id} />);
-      setChildTables(tables);
-    }
-  }, [isExpanded, isExpandable, id]);
-  */
-
   return (
     <>
       <div className="table__row">
-        { isExpandable ?
+        { kids.length ?
           <button className="table__btn" onClick={toggleExpanded}> {">"} </button> : 
           <div style={{ width: "7rem" }} /> 
         }
@@ -41,7 +31,7 @@ const TableRow = ({ vals, isExpandable, isDeletable, widths, id }: TableRowProps
           <div style={{ width: "7rem" }} /> 
         }
       </div>
-      {childTables}
+      {isExpanded && kids.map(id => <Table key={id} id={id} />)}
     </>
   )
 }

@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Kids } from "./table";
 
 export interface ChildrenProps {
   children: ReactNode;
@@ -9,11 +10,11 @@ export interface TableProps {
 }
 
 export interface TableRowProps {
-  vals: string[];
-  isExpandable: boolean;
-  isDeletable: boolean;
   id: string;
+  kids: string[];
+  vals: string[];
   widths: number[];
+  isDeletable: boolean;
 }
 
 export interface TableColumnsProps {

@@ -1,4 +1,4 @@
-import { Table, Location } from "../models/table"
+import { Table, Location, Kids } from "../models/table"
 import TableRow from "../components/TableRow";
 
 export const getLocationFromId = (id: string): Location => (
@@ -35,27 +35,12 @@ export const getColumnsWidths = (data: Table) => {
   return widths;
 }
 
-export const getTableRows = (data: Table, columnsWidths: number[], indx: string) => (
-  data.map((d, i) => {
-    const vals = Object.values(d.data);
-    const hasChildren = Object.keys(d.kids).length !== 0;
+export const getTableRows = (table: Table, columnsWidths: number[], indx: string) => (
+  table.map((row, i) => {
+    console.log(row.kids);
     const rowId = indx ? `${indx}-${i}` : `${i}`;
-    return (
-      <TableRow 
-        key={rowId} 
-        id={rowId} 
-        vals={vals} 
-        widths={columnsWidths} 
-        isExpandable={hasChildren}
-        isDeletable={true} 
-      />
-    )
+    const vals = Object.values(row.data);
+    const kids = Object.keys(row.kids).map(key => `${rowId}-${key}`);
+    return <TableRow key={rowId} id={rowId} vals={vals} widths={columnsWidths} kids={kids} isDeletable={true} />;
   })
 );
-
-export const getChildTablesIds = (data: Table, parentId: string): string[] => {
-  const location = getLocationFromId(parentId);
-  const currTableRow = location.pop() as number;
-  const currTable = getTable(data, location);
-  return Object.keys(currTable[currTableRow].kids).map(key => `${parentId}-${key}`);
-}
