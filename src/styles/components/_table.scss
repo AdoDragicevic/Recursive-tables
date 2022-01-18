@@ -53,17 +53,20 @@
 
   &__btn {
     width: 7rem;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     transition: all .5s;
     background-color: transparent;
     border: none;
     cursor: pointer;
     height: 100%;
-    
-    &:hover {
-      transform: rotate(90deg);
-      color: black;
-    }
+  }
+
+  &__btn--opened {
+    transform: rotate(90deg);
+  }
+
+  &__btn--delete:hover {
+    color: rgb(212, 97, 97);
   }
 
 }
