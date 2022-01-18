@@ -2,8 +2,8 @@ import { createContext, Dispatch } from "react";
 import { Table } from "../models/table";
 import { TableReducer, TableDispatchAction } from "../models/reducer";
 import { ChildrenProps } from "../models/props";
-import useReducerAndLocStrg from "../hooks/useReducerAndLocStrg";
 import tableReducer from "../reducers/table";
+import useReducerAndLocStrg from "../hooks/useReducerAndLocStrg";
 import seedData from "../data/seedData";
 
 const SEED_DATA = JSON.parse(seedData);

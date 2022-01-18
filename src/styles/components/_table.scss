@@ -4,16 +4,11 @@
   padding-left: .5rem;
   border-left: 1px solid gray;
   margin: 1rem;
+  animation: fadeIn .2s ease;
   
   &:not(:first-child) {
     margin-right: 0;
   }
-
-  /*
-  &:hover {
-    //transform: scale(0.15); // this could be an intro animation
-  }
-  */
 
   &__name {
     font-weight: 400;

@@ -1,5 +1,6 @@
-import { getLocationFromId, getTable } from "../helpers/table";
 import { TableReducer, TableDispatchActionType } from "../models/reducer";
+import { getLocationFromId, getTable } from "../helpers/table";
+
 
 const tableReducer: TableReducer = (state, action) => {
   switch(action.type) {
@@ -9,7 +10,7 @@ const tableReducer: TableReducer = (state, action) => {
             rowIndx  = location.pop() as number,
             table    = getTable(copy, location);
       table.splice(rowIndx, 1);
-      if (!table.length) {
+      if (!table.length) { // if table has no more rows, delete whole table
         const tableName   = location.pop() as string,
               row         = location.pop() as number,
               parentTable = getTable(copy, location);
@@ -19,6 +20,7 @@ const tableReducer: TableReducer = (state, action) => {
     default:
       return state;
   }
+
 }
 
 export default tableReducer;

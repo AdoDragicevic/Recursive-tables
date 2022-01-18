@@ -1,5 +1,6 @@
 import { TableColumnsProps } from "../models/props";
 
+
 const TableColumns = ({ vals, widths }: TableColumnsProps) => (
   <div className="table__columns">
     {vals.map((val, i) => (

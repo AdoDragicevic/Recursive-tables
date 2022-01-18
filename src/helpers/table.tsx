@@ -1,4 +1,4 @@
-import { Table, Location, Kids } from "../models/table"
+import { Table, Location } from "../models/table"
 import TableRow from "../components/TableRow";
 
 export const getLocationFromId = (id: string): Location => (

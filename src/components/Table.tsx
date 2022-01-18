@@ -1,8 +1,8 @@
-import TableRow from "./TableRow";
 import { useContext } from "react";
 import { TableCtx } from "../contexts/table";
 import { TableProps } from "../models/props";
 import { getLocationFromId, getTable, getTableName, getColumnsWidths, getTableRows } from "../helpers/table";
+import TableRow from "./TableRow";
 
 
 const Table = ({ id = "" }: TableProps) => {
