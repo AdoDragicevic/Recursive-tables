@@ -6,7 +6,7 @@ import { TableDispatchCtx } from "../contexts/table";
 import { TableDispatchActionType } from "../models/reducer";
 import { TableRowProps } from "../models/props";
 
-const TableRow = ({ id, vals, kids, widths, isDeletable }: TableRowProps) => {
+const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => {
   
   const dispatch = useContext(TableDispatchCtx);
   
@@ -21,7 +21,7 @@ const TableRow = ({ id, vals, kids, widths, isDeletable }: TableRowProps) => {
   return (
     <>
       <div className="table__row">
-        { kids.length ?
+        { kidsIds.length ?
           <button className="table__btn" onClick={toggleExpanded}> {">"} </button> : 
           <div style={{ width: "7rem" }} /> 
         }
@@ -31,7 +31,7 @@ const TableRow = ({ id, vals, kids, widths, isDeletable }: TableRowProps) => {
           <div style={{ width: "7rem" }} /> 
         }
       </div>
-      {isExpanded && kids.map(id => <Table key={id} id={id} />)}
+      {isExpanded && kidsIds.map(id => <Table key={id} id={id} />)}
     </>
   )
 }

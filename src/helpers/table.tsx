@@ -35,12 +35,11 @@ export const getColumnsWidths = (data: Table) => {
   return widths;
 }
 
-export const getTableRows = (table: Table, columnsWidths: number[], indx: string) => (
+export const getTableRows = (table: Table, tableId: string, columnsWidths: number[]) => (
   table.map((row, i) => {
-    console.log(row.kids);
-    const rowId = indx ? `${indx}-${i}` : `${i}`;
+    const rowId = tableId ? `${tableId}-${i}` : `${i}`;
     const vals = Object.values(row.data);
     const kids = Object.keys(row.kids).map(key => `${rowId}-${key}`);
-    return <TableRow key={rowId} id={rowId} vals={vals} widths={columnsWidths} kids={kids} isDeletable={true} />;
+    return <TableRow key={rowId} id={rowId} vals={vals} widths={columnsWidths} kidsIds={kids} isDeletable={true} />;
   })
 );

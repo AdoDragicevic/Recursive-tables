@@ -11,7 +11,7 @@ export interface TableProps {
 
 export interface TableRowProps {
   id: string;
-  kids: string[];
+  kidsIds: string[];
   vals: string[];
   widths: number[];
   isDeletable: boolean;

@@ -14,12 +14,12 @@ const Table = ({ id = "" }: TableProps) => {
   const name = getTableName(location);
   const labels = Object.keys(table[0].data);
   const columnsWidths = getColumnsWidths(table);
-  const tableRows = getTableRows(table, columnsWidths, id);
+  const tableRows = getTableRows(table, id, columnsWidths);
 
   return (
     <div className="table">
       <p className="table__name"> {name} </p>
-      <TableRow id={`${id}-label`} vals={labels} kids={[]} isDeletable={false} widths={columnsWidths} />
+      <TableRow id={`${name}-label`} vals={labels} kidsIds={[]} isDeletable={false} widths={columnsWidths} />
       {tableRows}
     </div>
   )
