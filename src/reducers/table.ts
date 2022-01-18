@@ -14,7 +14,7 @@ const tableReducer: TableReducer = (state, action) => {
         const tableName   = location.pop() as string,
               row         = location.pop() as number,
               parentTable = getTable(copy, location);
-        delete parentTable[row].kids[tableName];
+        if (parentTable[row]) delete parentTable[row].kids[tableName];
       }
       return copy;
     default:

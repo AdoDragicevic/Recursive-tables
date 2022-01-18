@@ -9,6 +9,14 @@ const Table = ({ id = "" }: TableProps) => {
 
   const data = useContext(TableCtx);
 
+  /*
+  if (!data.length) {
+    localStorage.clear();
+    window.location.reload();
+    // return <p className="table__no-data-msg"> Table is empty </p>;
+  }
+  */
+
   const location = getLocationFromId(id);
   const table = getTable(data, location);
   const name = getTableName(location);

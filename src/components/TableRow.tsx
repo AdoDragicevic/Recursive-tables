@@ -15,7 +15,7 @@ const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => 
 
   const handleDelete = () => {
     if (isExpanded) toggleExpanded();
-    dispatch({ type: TableDispatchActionType.DELETE, id });     
+    dispatch({ type: TableDispatchActionType.DELETE, id }); 
   }
 
   const btn1CSS = `table__btn table__btn--${isExpanded ? "opened" : "closed"}`,
@@ -24,7 +24,7 @@ const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => 
   return (
     <>
       <div className="table__row">
-        { kidsIds.length !== 0 ?
+        { kidsIds.length ?
           <button className={btn1CSS} onClick={toggleExpanded}> {">"} </button> : 
           <div style={{ width: "7rem" }} /> 
         }
@@ -34,7 +34,7 @@ const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => 
           <div style={{ width: "7rem" }} /> 
         }
       </div>
-      {isExpanded && kidsIds.map(id => <Table key={id} id={id} />)}
+      {isExpanded && kidsIds.map(id => <Table key={vals.join()} id={id} />)}
     </>
   )
 }

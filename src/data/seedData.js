@@ -36,21 +36,7 @@ const seedData = `[
                              }
                           }
                        ]
-                    },
-                    "ado":{
-                     "records":[
-                        {
-                           "data":{
-                              "Phone ID":"2008",
-                              "ID of the relative":"1007",
-                              "Phone":"+(179)-982-0570"
-                           },
-                           "kids":{
-
-                           }
-                        }
-                     ]
-                  }
+                    }
                  }
               }
            ]

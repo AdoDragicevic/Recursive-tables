@@ -40,6 +40,6 @@ export const getTableRows = (table: Table, tableId: string, columnsWidths: numbe
     const rowId = tableId ? `${tableId}-${i}` : `${i}`;
     const vals = Object.values(row.data);
     const kids = Object.keys(row.kids).map(key => `${rowId}-${key}`);
-    return <TableRow key={rowId} id={rowId} vals={vals} widths={columnsWidths} kidsIds={kids} isDeletable={true} />;
+    return <TableRow key={vals.join()} id={rowId} vals={vals} widths={columnsWidths} kidsIds={kids} isDeletable={true} />;
   })
 );

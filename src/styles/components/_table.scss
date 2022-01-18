@@ -10,6 +10,15 @@
     margin-right: 0;
   }
 
+  &__no-data-msg {
+    text-align: center;
+    font-size: 1.2rem;
+    padding-top: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: fadeIn .4s ease-in;
+  }
+
   &__name {
     font-weight: 400;
     text-transform: uppercase;
