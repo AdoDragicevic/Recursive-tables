@@ -19,5 +19,9 @@
     color: blue;
     text-decoration: underline;
     cursor: pointer;
+
+    &:hover, &:active, &:visited {
+      color: cadetblue;
+    }
   }
 }
