@@ -4,6 +4,10 @@
   padding-left: .5rem;
   border-left: 1px solid gray;
   margin: 1rem;
+  
+  &:not(:first-child) {
+    margin-right: 0;
+  }
 
   /*
   &:hover {
