@@ -6,7 +6,6 @@ import useToggle from "../hooks/useToggle";
 import Table from "./Table";
 import TableColumns from "./TableColumns";
 
-
 const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => {
   
   const dispatch = useContext(TableDispatchCtx);
@@ -15,7 +14,7 @@ const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => 
 
   const handleDelete = () => {
     if (isExpanded) toggleExpanded();
-    dispatch({ type: TableDispatchActionType.DELETE, id }); 
+    dispatch({ type: TableDispatchActionType.DELETE, id });
   }
 
   const btn1CSS = `table__btn table__btn--${isExpanded ? "opened" : "closed"}`,
@@ -31,10 +30,10 @@ const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => 
         <TableColumns vals={vals} widths={widths} />
         { isDeletable ?
           <button className={btn2CSS} onClick={handleDelete}> x </button> : 
-          <div style={{ width: "7rem" }} /> 
+          <div style={{ width: "7rem" }} />
         }
       </div>
-      {isExpanded && kidsIds.map(id => <Table key={vals.join()} id={id} />)}
+      {isExpanded && kidsIds.map((id, i) => <Table key={vals.join() + i} id={id} />)}
     </>
   )
 }
