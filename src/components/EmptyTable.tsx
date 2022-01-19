@@ -1,9 +1,17 @@
+import useToggle from "../hooks/useToggle";
+
+
 const EmptyTable = () => {
-  
+
+  const [isReseting, toggleReseting] = useToggle(false);
+
   const handleClick = () => {
+    toggleReseting();
     localStorage.clear();
     window.location.reload();
   }
+
+  if (isReseting) return <p className="empty-table__msg"> {`Reloading data...`} </p>
 
   return (
     <div className="empty-tabe">
