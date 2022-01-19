@@ -11,19 +11,19 @@ export interface TableProps {
 
 export interface TableHeaderProps {
   name: string;
-  labels: string[];
-  widths: number[];
+  labels: string;
+  widths: string;
 }
 
 export interface TableRowProps {
   id: string;
   data: Data;
   kids: Kids;
-  widths: number[];
+  widths: string;
   isDeletable: boolean;
 }
 
 export interface TableColumnsProps {
-  vals: string[];
-  widths: number[];
+  vals: string;
+  widths: string;
 }

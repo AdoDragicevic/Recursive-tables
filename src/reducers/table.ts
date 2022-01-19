@@ -1,10 +1,13 @@
 import { TableReducer, TableDispatchActionType } from "../models/reducer";
-import { getLocationFromId, getTable } from "../helpers/table";
+import { deleteTableRow, getLocationFromId } from "../helpers/table";
 
 
 const tableReducer: TableReducer = (state, action) => {
   switch(action.type) {
     case(TableDispatchActionType.DELETE):
+      const location = getLocationFromId(action.id);
+      return deleteTableRow(state, location);
+      /*
       const copy     = JSON.parse(JSON.stringify(state)),
             location = getLocationFromId(action.id),
             rowIndx  = location.pop() as number,
@@ -17,6 +20,7 @@ const tableReducer: TableReducer = (state, action) => {
         if (parentTable[row]) delete parentTable[row].kids[tableName];
       }
       return copy;
+      */
     default:
       return state;
   }

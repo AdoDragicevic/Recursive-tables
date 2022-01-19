@@ -9,16 +9,17 @@ import { memo } from "react";
 
 const TableRow = ({ id, data, kids, widths, isDeletable }: TableRowProps) => {
 
+  console.log("Render Table Row", id);
+
   const dispatch = useContext(TableDispatchCtx);
   
   const [isExpanded, toggleExpanded] = useToggle(false);
 
   const handleDelete = () => dispatch({ type: TableDispatchActionType.DELETE, id });
 
-  const vals = Object.values(data);
-  const kidTables = Object.keys(kids).map(key => `${id}-${key}`);
-
-  const btn1CSS = `table__btn table__btn--${isExpanded ? "opened" : "closed"}`,
+  const vals = Object.values(data).join("-"),
+        kidTables = Object.keys(kids).map(key => `${id}-${key}`),
+        btn1CSS = `table__btn table__btn--${isExpanded ? "opened" : "closed"}`,
         btn2CSS = "table__btn table__btn--delete";
 
   return (
@@ -34,7 +35,7 @@ const TableRow = ({ id, data, kids, widths, isDeletable }: TableRowProps) => {
           <div style={{ width: "7rem" }} />
         }
       </div>
-      {isExpanded && kidTables.map((id, i) => <Table key={vals.join() + i} id={id} />)}
+      {isExpanded && kidTables.map((id, i) => <Table key={vals + i} id={id} />)}
     </>
   )
 }

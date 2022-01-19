@@ -14,8 +14,9 @@ const Table = ({ id = "" }: TableProps) => {
   const location = getLocationFromId(id);
   const table = getTable(data, location);
   const name = getTableName(location) as string;
-  const labels = Object.keys(table[0].data);
-  const columnsWidths = getColumnsWidths(table);
+  const labels = Object.keys(table[0].data).join("-");
+  const columnsWidths = getColumnsWidths(table).join("-");
+  //const columnsWidths = "100-100-100-100-100-100-100-100-100-100-100";
   const tableRows = getTableRows(table, id, columnsWidths);
 
   return (
