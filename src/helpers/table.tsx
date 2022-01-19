@@ -2,7 +2,7 @@ import { Table, Location } from "../models/table"
 import TableRow from "../components/TableRow";
 
 export const getLocationFromId = (id: string): Location => (
-  id ? id.split("-").map( (s, i) => i % 2 === 0 ? parseInt(s) : s ) : []
+  id ? id.split("__$__").map( (s, i) => i % 2 === 0 ? parseInt(s) : s ) : []
 )
 
 export const getTable = (data: Table, location: Location): Table => {
@@ -37,7 +37,7 @@ export const getColumnsWidths = (data: Table) => {
 
 export const getTableRows = (table: Table, tableId: string, columnsWidths: string) => (
   table.map((row, i) => {
-    const rowId = tableId ? `${tableId}-${i}` : `${i}`;
+    const rowId = tableId ? `${tableId}__$__${i}` : `${i}`;
     const key = Object.values(row.data).join();
     return <TableRow key={key} id={rowId} data={row.data} widths={columnsWidths} kids={row.kids} isDeletable={true} />;
   })
@@ -54,6 +54,7 @@ export const deleteTableRow = (table: Table, location: Location): Table => {
     let r = {
       ...row,
       kids: {
+        ...row.kids,
         [kid]: {
           records: deleteTableRow(row.kids[kid].records, location.slice(2))
         }

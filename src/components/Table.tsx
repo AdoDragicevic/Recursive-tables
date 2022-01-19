@@ -8,7 +8,7 @@ import TableHeader from "./TableHeader";
 
 const Table = ({ id = "" }: TableProps) => {
 
-  console.log("Render table", id)
+  console.log("Table", id);
 
   const data = useContext(TableCtx);
 

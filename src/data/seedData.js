@@ -40,7 +40,35 @@ const seedData = `[
                  }
               }
            ]
-        }
+        },
+        "has_relatives_2":{
+         "records":[
+            {
+               "data":{
+                  "Relative ID":"1007",
+                  "Patient ID":"34",
+                  "Is alive?":"true",
+                  "Frequency of visits":"29"
+               },
+               "kids":{
+                  "has_phone":{
+                     "records":[
+                        {
+                           "data":{
+                              "Phone ID":"2008",
+                              "ID of the relative":"1007",
+                              "Phone":"+(179)-982-0570"
+                           },
+                           "kids":{
+
+                           }
+                        }
+                     ]
+                  }
+               }
+            }
+         ]
+      }
      }
   },
   {

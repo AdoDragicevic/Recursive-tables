@@ -9,8 +9,6 @@ import { memo } from "react";
 
 const TableRow = ({ id, data, kids, widths, isDeletable }: TableRowProps) => {
 
-  console.log("Render Row", id);
-
   const dispatch = useContext(TableDispatchCtx);
   
   const [isExpanded, toggleExpanded] = useToggle(false);
@@ -18,14 +16,15 @@ const TableRow = ({ id, data, kids, widths, isDeletable }: TableRowProps) => {
   const handleDelete = () => dispatch({ type: TableDispatchActionType.DELETE, id });
 
   const vals = Object.values(data).join("__$__"),
-        kidTables = Object.keys(kids).map(key => `${id}-${key}`),
+        kidTablesIds = Object.keys(kids).map(key => `${id}__$__${key}`),
+        kidTablesKeys = Object.keys(kids),
         btn1CSS = `table__btn table__btn--${isExpanded ? "opened" : "closed"}`,
         btn2CSS = "table__btn table__btn--delete";
 
   return (
     <>
       <div className="table__row">
-        { kidTables.length ?
+        { kidTablesIds.length ?
           <button className={btn1CSS} onClick={toggleExpanded}> {">"} </button> : 
           <div style={{ width: "7rem" }} /> 
         }
@@ -35,7 +34,7 @@ const TableRow = ({ id, data, kids, widths, isDeletable }: TableRowProps) => {
           <div style={{ width: "7rem" }} />
         }
       </div>
-      {isExpanded && kidTables.map((id, i) => <Table key={vals + i} id={id} />)}
+      {isExpanded && kidTablesIds.map((id, i) => <Table key={kidTablesKeys[i]} id={id} />)}
     </>
   )
 }
