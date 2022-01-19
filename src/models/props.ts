@@ -10,6 +10,7 @@ export interface TableProps {
 }
 
 export interface TableHeaderProps {
+  name: string;
   labels: string[];
   widths: number[];
 }

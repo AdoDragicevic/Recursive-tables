@@ -13,15 +13,14 @@ const Table = ({ id = "" }: TableProps) => {
   if (!data.length) return <EmptyTable />;
   const location = getLocationFromId(id);
   const table = getTable(data, location);
-  const name = getTableName(location);
+  const name = getTableName(location) as string;
   const labels = Object.keys(table[0].data);
   const columnsWidths = getColumnsWidths(table);
   const tableRows = getTableRows(table, id, columnsWidths);
 
   return (
     <div className="table">
-      <p className="table__name"> {name} </p>
-      <TableHeader labels={labels} widths={columnsWidths} />
+      <TableHeader name={name} labels={labels} widths={columnsWidths} />
       {tableRows}
     </div>
   )
