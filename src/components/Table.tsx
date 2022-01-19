@@ -16,7 +16,6 @@ const Table = ({ id = "" }: TableProps) => {
   const name = getTableName(location) as string;
   const labels = Object.keys(table[0].data).join("-");
   const columnsWidths = getColumnsWidths(table).join("-");
-  //const columnsWidths = "100-100-100-100-100-100-100-100-100-100-100";
   const tableRows = getTableRows(table, id, columnsWidths);
 
   return (
@@ -28,3 +27,7 @@ const Table = ({ id = "" }: TableProps) => {
 }
 
 export default Table;
+
+// In this case, I think turing arr into str (with labels and columnWidths) is more optimal than 
+// useCallback. Reasoning that table will always be changed in setState. Even if we have one table 
+// and we delete one row we will use table.filter, which would change the useCallback dependancy arr, i.e. [table]
