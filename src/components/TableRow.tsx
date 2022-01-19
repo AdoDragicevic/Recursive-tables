@@ -5,6 +5,7 @@ import { TableRowProps } from "../models/props";
 import useToggle from "../hooks/useToggle";
 import Table from "./Table";
 import TableColumns from "./TableColumns";
+import { memo } from "react";
 
 const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => {
   
@@ -12,10 +13,7 @@ const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => 
   
   const [isExpanded, toggleExpanded] = useToggle(false);
 
-  const handleDelete = () => {
-    if (isExpanded) toggleExpanded();
-    dispatch({ type: TableDispatchActionType.DELETE, id });
-  }
+  const handleDelete = () => dispatch({ type: TableDispatchActionType.DELETE, id });
 
   const btn1CSS = `table__btn table__btn--${isExpanded ? "opened" : "closed"}`,
         btn2CSS = "table__btn table__btn--delete";
@@ -38,4 +36,4 @@ const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => 
   )
 }
 
-export default TableRow;
+export default memo(TableRow);
