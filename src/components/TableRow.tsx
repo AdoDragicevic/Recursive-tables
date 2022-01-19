@@ -5,7 +5,7 @@ import { TableRowProps } from "../models/props";
 import useToggle from "../hooks/useToggle";
 import Table from "./Table";
 import TableColumns from "./TableColumns";
-
+import { memo } from "react";
 
 const TableRow = ({ id, data, kids, widths, isDeletable }: TableRowProps) => {
 
@@ -39,4 +39,4 @@ const TableRow = ({ id, data, kids, widths, isDeletable }: TableRowProps) => {
   )
 }
 
-export default TableRow;
+export default memo(TableRow);

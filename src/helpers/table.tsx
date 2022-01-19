@@ -38,8 +38,9 @@ export const getColumnsWidths = (data: Table) => {
 export const getTableRows = (table: Table, tableId: string, columnsWidths: number[]) => (
   table.map((row, i) => {
     const rowId = tableId ? `${tableId}-${i}` : `${i}`;
-    const key = `${tableId}-${Object.values(row.data)}`;
+    const key = Object.values(row.data).join();
     //const kids = Object.keys(row.kids).map(key => `${rowId}-${key}`);
+    console.log("render table row");
     return <TableRow key={key} id={rowId} data={row.data} widths={columnsWidths} kids={row.kids} isDeletable={true} />;
   })
 );
