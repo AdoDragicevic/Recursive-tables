@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Data, Kids } from "./table";
 
 export interface ChildrenProps {
   children: ReactNode;
@@ -8,10 +9,15 @@ export interface TableProps {
   id?: string;
 }
 
+export interface TableHeaderProps {
+  labels: string[];
+  widths: number[];
+}
+
 export interface TableRowProps {
   id: string;
-  kidsIds: string[];
-  vals: string[];
+  data: Data;
+  kids: Kids;
   widths: number[];
   isDeletable: boolean;
 }

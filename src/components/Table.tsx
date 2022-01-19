@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { TableCtx } from "../contexts/table";
 import { TableProps } from "../models/props";
 import { getLocationFromId, getTable, getTableName, getColumnsWidths, getTableRows } from "../helpers/table";
-import TableRow from "./TableRow";
 import EmptyTable from "./EmptyTable";
+import TableHeader from "./TableHeader";
 
 
 const Table = ({ id = "" }: TableProps) => {
@@ -21,7 +21,7 @@ const Table = ({ id = "" }: TableProps) => {
   return (
     <div className="table">
       <p className="table__name"> {name} </p>
-      <TableRow id={`${name}-label`} vals={labels} kidsIds={[]} isDeletable={false} widths={columnsWidths} />
+      <TableHeader labels={labels} widths={columnsWidths} />
       {tableRows}
     </div>
   )

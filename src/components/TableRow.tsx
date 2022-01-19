@@ -5,15 +5,18 @@ import { TableRowProps } from "../models/props";
 import useToggle from "../hooks/useToggle";
 import Table from "./Table";
 import TableColumns from "./TableColumns";
-import { memo } from "react";
 
-const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => {
-  
+
+const TableRow = ({ id, data, kids, widths, isDeletable }: TableRowProps) => {
+
   const dispatch = useContext(TableDispatchCtx);
   
   const [isExpanded, toggleExpanded] = useToggle(false);
 
   const handleDelete = () => dispatch({ type: TableDispatchActionType.DELETE, id });
+
+  const vals = Object.values(data);
+  const kidTables = Object.keys(kids).map(key => `${id}-${key}`);
 
   const btn1CSS = `table__btn table__btn--${isExpanded ? "opened" : "closed"}`,
         btn2CSS = "table__btn table__btn--delete";
@@ -21,7 +24,7 @@ const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => 
   return (
     <>
       <div className="table__row">
-        { kidsIds.length ?
+        { kidTables.length ?
           <button className={btn1CSS} onClick={toggleExpanded}> {">"} </button> : 
           <div style={{ width: "7rem" }} /> 
         }
@@ -31,9 +34,9 @@ const TableRow = ({ id, vals, kidsIds, widths, isDeletable }: TableRowProps) => 
           <div style={{ width: "7rem" }} />
         }
       </div>
-      {isExpanded && kidsIds.map((id, i) => <Table key={vals.join() + i} id={id} />)}
+      {isExpanded && kidTables.map((id, i) => <Table key={vals.join() + i} id={id} />)}
     </>
   )
 }
 
-export default memo(TableRow);
+export default TableRow;
