@@ -18,7 +18,7 @@ const Table = ({ id = "" }: TableProps) => {
   useEffect( () => {
     const columnsWidths = getColumnsWidths(table).join("__$__");
     setColumnWidths(columnsWidths);
-  }, [] ); // I intentionally do not want to recalcuate column widths each time table row is deleted
+  }, [] );
   
   if (!data.length) return <EmptyTable />;
   
@@ -42,7 +42,7 @@ export default Table;
 // useCallback. Reasoning that table will always be changed in setState. Even if we have one table 
 // and we delete one row we will use table.filter, which would affect useCallback dependancy arr, i.e. [table]
 
-// Why I'm using useEffect?
-// Column widths are calculated dynamically, i.e. based on longest string in any table row. If one row
-// has a long name, and that row is deleted, then column widths are recalucated again and that columns width
-// decreases. I found this irritating from UX perspective, and applied useEffect with empty dependancy arr.
+// Why I'm using useState and useEffect for columnsWidths?
+// Column widths are calculated dynamically, i.e. based on longest string in any table row. If the row with
+// the largest string gets deleted, then column widths are recalucated and that columns width decreases.
+// I found this irritating from UX perspective, and therefore added useEffect with empty dependancy arr.
