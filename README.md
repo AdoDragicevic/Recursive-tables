@@ -1,3 +1,3 @@
-## Try the deployed version on Netlify!
+## Try it on Netlify!
 
 https://records-ado.netlify.app/
