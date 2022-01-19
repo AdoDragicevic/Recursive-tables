@@ -6,8 +6,21 @@ const tableReducer: TableReducer = (state, action) => {
   switch(action.type) {
     case(TableDispatchActionType.DELETE):
       const location = getLocationFromId(action.id);
-      return deleteTableRow(state, location);
-      /*
+      return deleteTableRow(state, location); 
+    default:
+      return state;
+  }
+
+}
+
+export default tableReducer;
+
+
+
+
+// Previous delete solution:
+
+/*
       const copy     = JSON.parse(JSON.stringify(state)),
             location = getLocationFromId(action.id),
             rowIndx  = location.pop() as number,
@@ -21,10 +34,3 @@ const tableReducer: TableReducer = (state, action) => {
       }
       return copy;
       */
-    default:
-      return state;
-  }
-
-}
-
-export default tableReducer;

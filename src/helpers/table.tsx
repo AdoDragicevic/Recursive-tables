@@ -43,14 +43,26 @@ export const getTableRows = (table: Table, tableId: string, columnsWidths: strin
   })
 );
 
-export const deleteTableRow = (state: Table, location: Location): Table => {
-  const table = state.filter((row, i) => i !== location[0]);
-  /*
-  const helper = (t: Table, l: Location) => {
-    
+export const deleteTableRow = (table: Table, location: Location): Table => {
+  if (location.length === 1) {
+    return table.filter((_row, i) => i !== location[0]);
   }
-
-  helper(table, location);
-*/
-  return table;
+  const i = location[0] as number;
+  const kid = location[1] as string;
+  return table.map( (row, indx) => {
+    if (indx !== i) return row;
+    let r = {
+      ...row,
+      kids: {
+        [kid]: {
+          records: deleteTableRow(row.kids[kid].records, location.slice(2))
+        }
+      }
+    }
+    if (!r.kids[kid].records.length) {
+      const isOnlyKid = Object.keys(r.kids).length === 1;
+      isOnlyKid ? r.kids = {} : delete r.kids[kid];
+    }
+    return r;
+  });
 }
