@@ -2,8 +2,8 @@ import { TableColumnsProps } from "../models/props";
 
 
 const TableColumns = ({ vals, widths }: TableColumnsProps) => {
-  const v = vals.split("-");
-  const w = widths.split("-");
+  const v = vals.split("__$__");
+  const w = widths.split("__$__");
   return (
     <div className="table__columns">
       {v.map((val, i) => (

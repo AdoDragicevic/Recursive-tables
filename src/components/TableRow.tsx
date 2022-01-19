@@ -9,7 +9,7 @@ import { memo } from "react";
 
 const TableRow = ({ id, data, kids, widths, isDeletable }: TableRowProps) => {
 
-  console.log("Render Table Row", id);
+  console.log("Render Row", id);
 
   const dispatch = useContext(TableDispatchCtx);
   
@@ -17,7 +17,7 @@ const TableRow = ({ id, data, kids, widths, isDeletable }: TableRowProps) => {
 
   const handleDelete = () => dispatch({ type: TableDispatchActionType.DELETE, id });
 
-  const vals = Object.values(data).join("-"),
+  const vals = Object.values(data).join("__$__"),
         kidTables = Object.keys(kids).map(key => `${id}-${key}`),
         btn1CSS = `table__btn table__btn--${isExpanded ? "opened" : "closed"}`,
         btn2CSS = "table__btn table__btn--delete";
