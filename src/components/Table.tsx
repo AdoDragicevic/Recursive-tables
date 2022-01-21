@@ -46,3 +46,8 @@ export default Table;
 // Column widths are calculated dynamically, i.e. based on longest string in any table row. If the row with
 // the largest string gets deleted, then column widths are recalucated and that columns width decreases.
 // I found this irritating from UX perspective, and therefore added useEffect with empty dependancy arr.
+
+// Why do I construct an id for each rendered TableRow & Table, instead of using the first key in data object?
+// The data schema is Record<string, string>. Assignment sais to not focus on the provided json data, i.e.
+// to focus on the schema. Nowhere is is mentioned that the first key in the data object will always contain
+// a unique id.
