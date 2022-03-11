@@ -40,7 +40,35 @@ const seedData = `[
                  }
               }
            ]
-        }
+        },
+        "is_adult":{
+         "records":[
+            {
+               "data":{
+                  "age":"29",
+                  "Passport ID":"34454534",
+                  "Is alive?":"true",
+                  "Frequency of attacks":"29"
+               },
+               "kids":{
+                  "has_phone":{
+                     "records":[
+                        {
+                           "data":{
+                              "Phone ID":"2002",
+                              "ID of the relative":"100",
+                              "Phone":"+(179)-982-0570"
+                           },
+                           "kids":{
+
+                           }
+                        }
+                     ]
+                  }
+               }
+            }
+         ]
+      }
      }
   },
   {
