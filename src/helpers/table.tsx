@@ -67,3 +67,6 @@ export const deleteTableRow = (table: Table, location: Location): Table => {
     return r;
   });
 }
+
+
+

@@ -1,7 +1,7 @@
 import useToggle from "../hooks/useToggle";
 
 
-const EmptyTable = () => {
+const NoTableMsg = () => {
 
   const [isReseting, toggleReseting] = useToggle(false);
 
@@ -26,4 +26,4 @@ const EmptyTable = () => {
   )
 }
 
-export default EmptyTable;
+export default NoTableMsg;

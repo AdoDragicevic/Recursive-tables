@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { TableCtx } from "../contexts/table";
 import { TableProps } from "../models/props";
 import { getLocationFromId, getTable, getTableName, getColumnsWidths, getTableRows } from "../helpers/table";
-import EmptyTable from "./EmptyTable";
+import NoTableMsg from "./NoTableMsg";
 import TableHeader from "./TableHeader";
 
 
@@ -20,7 +20,7 @@ const Table = ({ id = "" }: TableProps) => {
     setColumnWidths(columnsWidths);
   }, [] );
   
-  if (!data.length) return <EmptyTable />;
+  if (!data.length) return <NoTableMsg />;
   
   const name      = getTableName(location) as string,
         labels    = Object.keys(table[0].data).join("__$__"),
