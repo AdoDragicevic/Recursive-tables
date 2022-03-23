@@ -7,7 +7,7 @@ import Table from "./Table";
 import TableColumns from "./TableColumns";
 import { memo } from "react";
 
-const TableRow = ({ id, data, kids, widths, isDeletable }: TableRowProps) => {
+const TableRow = ({ id, data, kids, widths }: TableRowProps) => {
 
   const dispatch = useContext(TableDispatchCtx);
   
@@ -29,10 +29,7 @@ const TableRow = ({ id, data, kids, widths, isDeletable }: TableRowProps) => {
           <div style={{ width: "7rem" }} /> 
         }
         <TableColumns vals={vals} widths={widths} />
-        { isDeletable ?
-          <button className={btn2CSS} onClick={handleDelete}> x </button> : 
-          <div style={{ width: "7rem" }} />
-        }
+        <button className={btn2CSS} onClick={handleDelete}> x </button>
       </div>
       {isExpanded && kidTablesIds.map((id, i) => <Table key={kidTablesKeys[i]} id={id} />)}
     </>

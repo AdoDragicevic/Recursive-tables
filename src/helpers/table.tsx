@@ -39,7 +39,7 @@ export const getTableRows = (table: Table, tableId: string, columnsWidths: strin
   table.map((row, i) => {
     const rowId = tableId ? `${tableId}__$__${i}` : `${i}`;
     const key = Object.values(row.data).join();
-    return <TableRow key={key} id={rowId} data={row.data} widths={columnsWidths} kids={row.kids} isDeletable={true} />;
+    return <TableRow key={key} id={rowId} data={row.data} widths={columnsWidths} kids={row.kids} />;
   })
 );
 

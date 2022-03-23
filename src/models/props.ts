@@ -20,7 +20,6 @@ export interface TableRowProps {
   data: Data;
   kids: Kids;
   widths: string;
-  isDeletable: boolean;
 }
 
 export interface TableColumnsProps {
